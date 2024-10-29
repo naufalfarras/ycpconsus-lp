@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https://consus.ycp.com/sitemap.xml
