@@ -8,32 +8,33 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { CaretDown } from "@phosphor-icons/react";
 import { List } from "@phosphor-icons/react/dist/ssr";
+import gsap from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navigation = [
-  {
-    name: "Our Company",
-    children: [
-      { name: "About Us", href: "/about" },
-      { name: "Leadership", href: "/leadership" },
-      { name: "Partners", href: "/partners" },
-    ],
-  },
-  {
-    name: "Expertise",
-    children: [
-      { name: "Our Expertise", href: "/expertise" },
-      { name: "Academy", href: "/academy" },
-    ],
-  },
-  { name: "Industries", href: "/industries" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Insights", href: "/insights" },
-  { name: "White Papers", href: "/whitepapers" },
-  { name: "Careers", href: "/careers" },
-  { name: "Contact", href: "/contact" },
+  //   {
+  //     name: "Our Company",
+  //     children: [
+  //       { name: "About Us", href: "/about" },
+  //       { name: "Leadership", href: "/leadership" },
+  //       { name: "Partners", href: "/partners" },
+  //     ],
+  //   },
+  //   {
+  //     name: "Expertise",
+  //     children: [
+  //       { name: "Our Expertise", href: "/expertise" },
+  //       { name: "Academy", href: "/academy" },
+  //     ],
+  //   },
+  { name: "Awards", href: "#awards" },
+  { name: "Expertise", href: "#expertise" },
+  { name: "Industries", href: "#industries" },
+  { name: "White Papers", href: "#whitepapers" },
+  { name: "Team", href: "#team" },
+  { name: "Contact Us", href: "#contact-us" },
 ];
 
 const Navbar = ({ className }) => {
@@ -111,57 +112,31 @@ const Navbar = ({ className }) => {
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent collisionPadding={16}>
-            {navigation.map((item) =>
-              !item.children ? (
-                <DropdownMenuItem key={item.name} asChild>
-                  <Link key={item.name} href={item.href} className="text-sm">
-                    {item.name}
-                  </Link>
-                </DropdownMenuItem>
-              ) : (
-                item.children.map((child) => (
-                  <DropdownMenuItem key={child.name} asChild>
-                    <Link href={child.href} className="cursor-pointer">
-                      {child.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))
-              )
-            )}
+            {navigation.map((item) => (
+              <DropdownMenuItem key={item.name} asChild>
+                <button
+                  key={item.name}
+                  onClick={() =>
+                    gsap.to(window, { scrollTo: item.href, ease: "power4" })
+                  }
+                  className="text-sm"
+                >
+                  {item.name}
+                </button>
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
         <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item) =>
-            !item.children ? (
-              <Link key={item.name} href={item.href} className="text-sm">
-                {item.name}
-              </Link>
-            ) : (
-              <DropdownMenu key={item.name}>
-                <DropdownMenuTrigger asChild>
-                  <button
-                    type="button"
-                    className="flex items-center space-x-1.5 focus:outline-none"
-                  >
-                    <span className="text-sm">{item.name}</span>
-                    <CaretDown
-                      weight="bold"
-                      className="w-3.5 h-3.5 opacity-50"
-                    />
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {item.children.map((child) => (
-                    <DropdownMenuItem key={child.name} asChild>
-                      <Link href={child.href} className="cursor-pointer">
-                        {child.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            )
-          )}
+          {navigation.map((item) => (
+            <button
+              key={item.name}
+              onClick={() => gsap.to(window, { scrollTo: item.href })}
+              className="text-sm"
+            >
+              {item.name}
+            </button>
+          ))}
         </div>
       </nav>
     </header>
