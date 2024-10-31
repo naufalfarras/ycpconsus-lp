@@ -5,6 +5,7 @@ import Link from "next/link";
 const Footer = async ({ className }) => {
   const expertises = await getExpertises();
   const industries = await getIndustries();
+  const mainWebsiteURL = "https://consus.ycp.com/";
   return (
     <footer
       className={`${className} text-white relative overflow-hidden bg-gradient-to-b pt-4 lg:pt-9 from-brand-primary to-[#0D2C57] rounded-t-3xl`}
@@ -20,7 +21,7 @@ const Footer = async ({ className }) => {
       </div>
       <div className="relative max-w-6xl px-4 mx-auto lg:flex 2xl:max-w-7xl">
         <div className="flex flex-col justify-between lg:pr-12 lg:mr-12 lg:border-r lg:w-1/4 border-white/10">
-          <Link href="/" className="flex">
+          <Link href={mainWebsiteURL} target="_blank" className="flex">
             <span className="sr-only">YCP Consus</span>
             <svg
               className="h-9 lg:h-10"
@@ -87,7 +88,8 @@ const Footer = async ({ className }) => {
               <ul>
                 <li>
                   <Link
-                    href="/"
+                    href={mainWebsiteURL}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Home
@@ -97,7 +99,8 @@ const Footer = async ({ className }) => {
               <ul>
                 <li>
                   <Link
-                    href="/expertise"
+                    href={`${mainWebsiteURL}/expertise`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Expertise
@@ -106,7 +109,8 @@ const Footer = async ({ className }) => {
                     {expertises.data.map((expertise) => (
                       <li key={expertise.uuid}>
                         <Link
-                          href={`/expertise/${expertise.slug}`}
+                          href={`${mainWebsiteURL}/expertise/${expertise.slug}`}
+                          target="_blank"
                           className="block text-sm font-light text-white/60 hover:text-white"
                         >
                           {expertise.name}
@@ -119,7 +123,8 @@ const Footer = async ({ className }) => {
               <ul className="mt-2 lg:hidden">
                 <li>
                   <Link
-                    href="/case-studies"
+                    href={`${mainWebsiteURL}/case-studies`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Case Studies
@@ -127,7 +132,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/insights"
+                    href={`${mainWebsiteURL}/insights`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Insights
@@ -135,7 +141,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/whitepapers"
+                    href={`${mainWebsiteURL}/whitepapers`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     White Papers
@@ -143,7 +150,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href={`${mainWebsiteURL}/about`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     About
@@ -151,7 +159,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/careers"
+                    href={`${mainWebsiteURL}/careers`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Careers
@@ -159,7 +168,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/contact"
+                    href={`${mainWebsiteURL}/contact`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Contact
@@ -171,7 +181,8 @@ const Footer = async ({ className }) => {
               <ul>
                 <li>
                   <Link
-                    href="/industries"
+                    href={`${mainWebsiteURL}/industries`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Industries
@@ -180,7 +191,8 @@ const Footer = async ({ className }) => {
                     {industries.data.slice(0, 7).map((industry) => (
                       <li key={industry.uuid}>
                         <Link
-                          href={`/industries/${industry.slug}`}
+                          href={`${mainWebsiteURL}/industries/${industry.slug}`}
+                          target="_blank"
                           className="block text-sm font-light text-white/60 hover:text-white"
                         >
                           {industry.name}
@@ -192,7 +204,8 @@ const Footer = async ({ className }) => {
                     {industries.data.map((industry) => (
                       <li key={industry.uuid}>
                         <Link
-                          href={`/industries/${industry.slug}`}
+                          href={`${mainWebsiteURL}/industries/${industry.slug}`}
+                          target="_blank"
                           className="block text-sm font-light text-white/60 hover:text-white"
                         >
                           {industry.name}
@@ -208,7 +221,8 @@ const Footer = async ({ className }) => {
                 {industries.data.slice(7).map((industry) => (
                   <li key={industry.uuid}>
                     <Link
-                      href={`/industries/${industry.slug}`}
+                      href={`${mainWebsiteURL}/industries/${industry.slug}`}
+                      target="_blank"
                       className="block text-sm font-light text-white/60 hover:text-white"
                     >
                       {industry.name}
@@ -221,7 +235,8 @@ const Footer = async ({ className }) => {
               <ul>
                 <li>
                   <Link
-                    href="/case-studies"
+                    href={`${mainWebsiteURL}/case-studies`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Case Studies
@@ -229,7 +244,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/insights"
+                    href={`${mainWebsiteURL}/insights`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Insights
@@ -237,7 +253,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/whitepapers"
+                    href={`${mainWebsiteURL}/whitepapers`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Whitepapers
@@ -245,7 +262,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href={`${mainWebsiteURL}/about`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     About
@@ -253,7 +271,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/careers"
+                    href={`${mainWebsiteURL}/careers`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Careers
@@ -261,7 +280,8 @@ const Footer = async ({ className }) => {
                 </li>
                 <li>
                   <Link
-                    href="/contact"
+                    href={`${mainWebsiteURL}/contact`}
+                    target="_blank"
                     className="text-xs font-medium tracking-wider uppercase"
                   >
                     Contact
