@@ -475,14 +475,14 @@ export default async function Home() {
                   />
                 </div>
                 <div className="flex-1">
-                  <p className="text-3xl leading-tight font-heading">
+                  <p className="text-2xl leading-tight lg:text-3xl font-heading">
                     {item.name}
                   </p>
-                  <p className="pb-8 mt-1 mb-4 text-base leading-snug border-b opacity-80 border-white/40">
+                  <p className="pb-4 mt-0.5 lg:mt-1 mb-2 text-sm leading-snug border-b lg:text-base lg:pb-8 lg:mb-4 opacity-80 border-white/40">
                     {item.title}
                   </p>
                   {item.expertise && (
-                    <div className="text-base">
+                    <div className="text-sm lg:text-base">
                       <p className="opacity-50">Expertise:</p>
                       <p className="mt-1">{item.expertise}</p>
                     </div>
