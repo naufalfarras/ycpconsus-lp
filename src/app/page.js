@@ -17,6 +17,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   Car,
+  Check,
   Crane,
   CurrencyCircleDollar,
   Factory,
@@ -108,27 +109,65 @@ const expertise = [
   {
     title: "Source-to-Pay (S2P) System Digitization",
     desc: "We provide PMO services, blueprint and system design and configuration, testing, deployment, and system upgrades.",
-    url: "#",
+    lists: [
+      "Source to Pay (S2P) Assessment & Selection",
+      "PMO Services",
+      "Blueprint & System Design",
+      "S2P System Training and Certification",
+      "Change Management",
+      "Quality Assurance Management",
+      "Multi-Language Support",
+    ],
   },
   {
     title: "Analytics & Insights (BluMor)",
     desc: "Our team will get insights from data and enrich it using scripts and scrapes, then extract data features using neural networks and NLP.",
-    url: "#",
+    lists: [
+      "Processing and Cleaning of Raw Data",
+      "Auto - Classification and Matching",
+      "Insighting",
+    ],
   },
   {
     title: "Supply Chain Turnarounds",
     desc: "Demand forecasting, inventory optimization, distribution efficiency, supplier quality, cash flow management, risk mitigation, sustainability, and visibility.",
-    url: "#",
+    lists: [
+      "Demand Sensing & Forecasting",
+      "Inventory Management",
+      "Distribution & Logistics Management",
+      "Supplier Risk Assessment & Mitigation",
+      "Supplier Relationship Management",
+      "Supply Chain Financing",
+      "Sustainability",
+      "Visibility Enhancement",
+    ],
   },
   {
     title: "Procurement Operations",
     desc: "We optimize processes such as order tracking, PO diagnostics, requisition processing, compliance and risk management.",
-    url: "#",
+    lists: [
+      "Purchase Order Expedition & Tracking",
+      "Purchase Order Diagnostics",
+      "Purchase Requisition & Order Processing",
+      "Compliance & Risk Management",
+      "Contract Life Cycle Management",
+      "Supplier Performance Monitoring",
+      "Payment Compliance & Controls",
+      "Procurement Analytics & Reporting",
+    ],
   },
   {
     title: "Expert Sourcing",
     desc: "We provide support through market research, category strategy, supplier evaluation, specification standardization.",
-    url: "#",
+    lists: [
+      "Specification Design & Rationalization",
+      "Category Management Services",
+      "Supplier Sourcing & Selection",
+      "Market Analysis & Research",
+      "Negotiation & Contracting",
+      "Critical Parts Outreach",
+      "Accelerated Bidding",
+    ],
   },
 ];
 
@@ -328,20 +367,34 @@ export default async function Home() {
         <h2 className="text-4xl text-center lg:text-6xl">Our Expertise</h2>
         <div className="grid gap-5 mt-5 lg:mt-8 lg:grid-cols-3">
           {expertise.map((item, index) => (
-            <div
-              key={index}
-              className="relative p-6 overflow-hidden border border-gray-100 rounded-md shadow-lg lg:p-7 pb-7"
-            >
-              <span className="absolute bottom-0 left-0 w-2/3 h-1 bg-black"></span>
-              <div className="flex items-start justify-between gap-6">
-                <p className="text-2xl leading-tight font-heading">
-                  {item.title}
+            <div className="relative" key={index}>
+              <div className="relative p-6 overflow-hidden border border-gray-100 rounded-md shadow-lg peer lg:p-7 pb-7">
+                <span className="absolute bottom-0 left-0 w-2/3 h-1 bg-black"></span>
+                <div className="flex items-start justify-between gap-6">
+                  <p className="text-2xl leading-tight font-heading">
+                    {item.title}
+                  </p>
+                  <ArrowUpRight className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 text-brand-lightblue" />
+                </div>
+                <p className="mt-1 text-base leading-snug lg:mt-2 opacity-70">
+                  {item.desc}
                 </p>
-                <ArrowUpRight className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 text-brand-lightblue" />
               </div>
-              <p className="mt-1 text-base leading-snug lg:mt-2 opacity-70">
-                {item.desc}
-              </p>
+              <div className="hidden z-10 absolute top-0 right-0 bg-white peer-hover:flex w-[300px] p-3 shadow-lg rounded-lg border border-gray-200">
+                <ul className="space-y-1">
+                  {item.lists.map((list, list_index) => (
+                    <li
+                      key={list_index}
+                      className="flex items-start space-x-3 text-sm"
+                    >
+                      <span className="inline-flex items-center justify-center w-4 h-4 text-blue-700 rounded-full bg-gradient-to-br from-blue-100 to-blue-300">
+                        <Check size={10} weight="bold" />
+                      </span>
+                      <span className="opacity-60">{list}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
