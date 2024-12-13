@@ -368,32 +368,34 @@ export default async function Home() {
         <div className="grid gap-5 mt-5 lg:mt-8 lg:grid-cols-3">
           {expertise.map((item, index) => (
             <div className="relative" key={index}>
-              <div className="relative p-6 overflow-hidden border border-gray-100 rounded-md shadow-lg peer lg:p-7 pb-7">
+              <div className="relative p-6 border border-gray-100 rounded-md shadow-lg lg:p-7 pb-7">
                 <span className="absolute bottom-0 left-0 w-2/3 h-1 bg-black"></span>
                 <div className="flex items-start justify-between gap-6">
                   <p className="text-2xl leading-tight font-heading">
                     {item.title}
                   </p>
-                  <ArrowUpRight className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 text-brand-lightblue" />
+                  <div className="relative">
+                    <ArrowUpRight className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 text-brand-lightblue peer" />
+                    <div className="hidden z-10 absolute top-0 right-0 bg-white peer-hover:flex w-[300px] p-3 shadow-lg rounded-lg border border-gray-200">
+                      <ul className="space-y-1">
+                        {item.lists.map((list, list_index) => (
+                          <li
+                            key={list_index}
+                            className="flex items-start space-x-3 text-sm"
+                          >
+                            <span className="inline-flex items-center justify-center w-4 h-4 text-blue-700 rounded-full bg-gradient-to-br from-blue-100 to-blue-300">
+                              <Check size={10} weight="bold" />
+                            </span>
+                            <span className="opacity-60">{list}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <p className="mt-1 text-base leading-snug lg:mt-2 opacity-70">
                   {item.desc}
                 </p>
-              </div>
-              <div className="hidden z-10 absolute top-0 right-0 bg-white peer-hover:flex w-[300px] p-3 shadow-lg rounded-lg border border-gray-200">
-                <ul className="space-y-1">
-                  {item.lists.map((list, list_index) => (
-                    <li
-                      key={list_index}
-                      className="flex items-start space-x-3 text-sm"
-                    >
-                      <span className="inline-flex items-center justify-center w-4 h-4 text-blue-700 rounded-full bg-gradient-to-br from-blue-100 to-blue-300">
-                        <Check size={10} weight="bold" />
-                      </span>
-                      <span className="opacity-60">{list}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           ))}
