@@ -68,18 +68,6 @@ const Footer = async ({ className }) => {
                 />
               </svg>
             </Link>
-            <Link href="https://www.youtube.com/@consusglobal" target="_blank">
-              <svg
-                className="h-5 translate-y-[3px]"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill="currentColor"
-                  d="M10 2.3C.172 2.3 0 3.174 0 10s.172 7.7 10 7.7s10-.874 10-7.7s-.172-7.7-10-7.7zm3.205 8.034l-4.49 2.096c-.393.182-.715-.022-.715-.456V8.026c0-.433.322-.638.715-.456l4.49 2.096c.393.184.393.484 0 .668z"
-                />
-              </svg>
-            </Link>
           </div>
         </div>
         <div className="pt-4 mt-4 border-t lg:pt-0 lg:mt-0 border-white/10 lg:border-t-0">
@@ -328,11 +316,11 @@ const Footer = async ({ className }) => {
                     </li>
                     <li>
                       <Link
-                        href={`https://consus.ycp.com/`}
+                        href={`https://supplychain.ycp.com/`}
                         className="block text-sm font-light text-white/60 hover:text-white"
                         target="_blank"
                       >
-                        YCP Consus
+                        YCP Supply Chain
                       </Link>
                     </li>
                   </ul>
